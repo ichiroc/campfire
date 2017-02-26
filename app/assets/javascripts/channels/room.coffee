@@ -1,4 +1,4 @@
-App.room = App.cable.subscriptions.create "RoomChannel",
+App.room = App.cable.subscriptions.create "RoomChannel", # RoomChannel のクラスとここで紐づけられる(購読する)
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -10,3 +10,6 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   speak: (message)->
     @perform 'speak', message: message
+
+  greeting: (message)->
+    @perform 'greeting', message: "greeting! #{message}"
